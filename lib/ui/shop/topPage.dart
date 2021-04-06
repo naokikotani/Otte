@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:otte/repositories/productRepository.dart';
 import 'package:otte/ui/cart/cartPage.dart';
 import 'package:otte/ui/cart/pusher.dart';
 
 class TopPage extends StatelessWidget {
   const TopPage();
+
+  static const _productRepository = ProductRepository();
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +25,11 @@ class TopPage extends StatelessWidget {
               onPressed: CartPagePusher(context).push,
             ),
           ],
+        ),
+        body: FloatingActionButton(
+          onPressed: () {
+            _productRepository.getProducts();
+          },
         ),
       ),
     );
