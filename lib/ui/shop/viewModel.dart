@@ -7,16 +7,21 @@ final topPageViewModelProvider =
     AutoDisposeChangeNotifierProvider((ref) => TopPageViewModelProvider());
 
 class TopPageViewModelProvider extends ChangeNotifier {
+  ProductListPageViewModel(int amount) {
+    _initialize(amount);
+  }
   ProductRepository get _productRepository => const ProductRepository();
 
-  List<Product> _products = [];
+  List<Product> products = [];
 
-  List<Product> get latestPosts => _products;
+  List<Product> get latestPosts => products;
 
-  void getProducts() {
-    _productRepository.getProducts().listen((products) {
-      _products = products;
-      notifyListeners();
-    });
+  void _initialize(int amount) {
+    getProducts(amount);
+  }
+
+  Future<void> getProducts(int amount) async {
+    final productList = await _productRepository.getProducts(amount);
+    products = productList;
   }
 }

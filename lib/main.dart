@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:otte/repositories/productRepository.dart';
 import 'package:otte/resources/api/productAPI.dart';
 import 'package:otte/ui/root.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(ProviderScope(
+      child: MyApp(),
+    ),);
 }
 
 class MyApp extends StatelessWidget {

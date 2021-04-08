@@ -26,6 +26,7 @@ dependencies:
 
   graphql_flutter: ^3.0.1
   font_awesome_flutter: ^8.11.0
+  flutter_hooks: ^0.15.0
   hooks_riverpod: ^0.12.4
 
 

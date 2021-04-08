@@ -1,15 +1,25 @@
+import 'dart:convert';
+
+import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:otte/models/variant.dart';
+
 class Product {
-  const Product({
-    this.productId,
-    this.productName,
-    this.imageUrls,
-    this.productType,
-    this.price
-  });
+  Product({this.productId, this.productName, this.variant});
+
+  factory Product.fromJson(Map<String, dynamic> parsedJson) {
+    return Product(
+      productId: parsedJson['id'] as String,
+      productName: parsedJson['title'] as String,
+      variant: Variant.fromJson(parsedJson),
+    );
+  }
 
   final String productId;
   final String productName;
-  final List<String> imageUrls;
-  final String productType;
-  final double price;
+  Variant variant = Variant(
+    id: '',
+    imageUrl: '',
+    productType: '',
+    price: '',
+  );
 }

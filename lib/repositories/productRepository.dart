@@ -9,14 +9,13 @@ class ProductRepository {
 
   ProductAPI get _productAPI => const ProductAPI();
 
-  Future<List<Product>> getProducts() async {
-    final snapshot = await _productAPI.getProducts(5);
-    List<Product> list = [];
-    Map<String, dynamic> decoded = json.decode(snapshot.data);
-    print(decoded);
-    for (var item in decoded['id']) {
-      list.add(Product.fromJson(item));
-    }
-    return list;
+  Future<List<Product>> getProducts(int amount) async {
+    final queryResult = await _productAPI.getProducts(amount);
+    final productQueryList = queryResult.data['products']['edges'] as List;
+    final productList = productQueryList.map<Product>((dynamic productData) {
+      final node = productData['node'] as Map<String, dynamic>;
+      return Product.fromJson(node);
+    }).toList();
+    return productList;
   }
 }
