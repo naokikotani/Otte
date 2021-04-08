@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:otte/repositories/productRepository.dart';
 import 'package:otte/ui/cart/cartPage.dart';
 import 'package:otte/ui/cart/pusher.dart';
+import 'package:otte/ui/shop/productDetail/pusher.dart';
 import 'package:otte/ui/shop/viewModel.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart' as riverpod;
 
@@ -32,9 +33,31 @@ class TopPage extends HookWidget {
         ),
         body: ListView.builder(
           itemBuilder: (BuildContext context, int index) {
-            return Text(products[index].variant.price);
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: GestureDetector(
+                child: Column(
+                  children: [
+                    Text(
+                      products[index].productName,
+                      style:
+                          TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      '￥${products[index].variant.price}',
+                      style: TextStyle(fontSize: 15),
+                    ),
+                  ],
+                ),
+                onTap: () {
+                  ProductDetailPagePusher(context, product: products[index])
+                      .push();
+                },
+              ),
+            );
           },
-          itemCount: products.length,),
+          itemCount: products.length,
+        ),
       ),
     );
   }
