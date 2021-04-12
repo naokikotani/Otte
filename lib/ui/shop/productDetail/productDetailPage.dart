@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:otte/models/product.dart';
+import 'package:otte/ui/shop/productDetail/addCartButton.dart';
 
 class ProductDetailPage extends HookWidget {
   const ProductDetailPage({@required this.product});
@@ -32,15 +33,10 @@ class ProductDetailPage extends HookWidget {
                 style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
               ),
               Text(
-                product.variant.price,
+                '${product.variants[0].price}',
                 style: TextStyle(fontSize: 15),
               ),
-              RaisedButton(
-                child: const Text('買い物かごへ追加'),
-                color: Colors.black,
-                textColor: Colors.white,
-                onPressed: () {},
-              ),
+              AddCartButton(),
             ],
           ),
         ),

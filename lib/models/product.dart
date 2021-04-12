@@ -4,22 +4,22 @@ import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:otte/models/variant.dart';
 
 class Product {
-  Product({this.productId, this.productName, this.variant});
+  Product({this.productId, this.productName, this.variants});
 
   factory Product.fromJson(Map<String, dynamic> parsedJson) {
+    final productQueryList = parsedJson['variants']['edges'] as List;
     return Product(
       productId: parsedJson['id'] as String,
       productName: parsedJson['title'] as String,
-      variant: Variant.fromJson(parsedJson),
+      variants: productQueryList.map<Variant>((dynamic variant) {
+        final node = variant['node'] as Map<String, dynamic>;
+        print(node);
+        return Variant.fromJson(node);
+      }).toList(),
     );
   }
 
   final String productId;
   final String productName;
-  Variant variant = Variant(
-    id: '',
-    imageUrl: '',
-    productType: '',
-    price: '',
-  );
+  final List<Variant> variants;
 }

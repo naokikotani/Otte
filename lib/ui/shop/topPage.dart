@@ -26,7 +26,7 @@ class TopPage extends HookWidget {
                 color: Colors.black,
               ),
               onPressed: () {
-                topPageViewModel.getProducts(5);
+                topPageViewModel.getProducts();
               },
             ),
           ],
@@ -44,7 +44,7 @@ class TopPage extends HookWidget {
                           TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                     ),
                     Text(
-                      '￥${products[index].variant.price}',
+                      '￥${products[index].variants[0].price}',
                       style: TextStyle(fontSize: 15),
                     ),
                   ],
