@@ -16,6 +16,7 @@ class ProductRepository {
       final node = productData['node'] as Map<String, dynamic>;
       return Product.fromJson(node);
     }).toList();
+
     return productList;
   }
 }

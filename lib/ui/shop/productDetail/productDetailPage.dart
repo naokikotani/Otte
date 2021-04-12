@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:otte/models/product.dart';
-import 'package:otte/ui/shop/productDetail/addCartButton.dart';
+import 'package:otte/ui/shop/selectSize/pusher.dart';
 
 class ProductDetailPage extends HookWidget {
   const ProductDetailPage({@required this.product});
@@ -25,19 +25,29 @@ class ProductDetailPage extends HookWidget {
             ),
           ],
         ),
-        body: Center(
-          child: Column(
-            children: <Widget>[
-              Text(
-                product.productName,
-                style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-              ),
-              Text(
-                '${product.variants[0].price}',
-                style: TextStyle(fontSize: 15),
-              ),
-              AddCartButton(),
-            ],
+        body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Center(
+            child: Column(
+              children: <Widget>[
+                Text(
+                  product.productName,
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  '¥${product.variants[0].price}',
+                  style: TextStyle(fontSize: 15),
+                ),
+                RaisedButton(
+                  child: const Text('買い物かごへ追加'),
+                  color: Colors.black,
+                  textColor: Colors.white,
+                  onPressed: () {
+                    SelectSizePagePusher(context, product: product).push();
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),

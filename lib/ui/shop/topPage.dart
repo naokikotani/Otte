@@ -26,6 +26,15 @@ class TopPage extends HookWidget {
                 color: Colors.black,
               ),
               onPressed: () {
+                CartPagePusher(context).push();
+              },
+            ),
+            IconButton(
+              icon: Icon(
+                FontAwesomeIcons.accessibleIcon,
+                color: Colors.black,
+              ),
+              onPressed: () {
                 topPageViewModel.getProducts();
               },
             ),
@@ -38,6 +47,7 @@ class TopPage extends HookWidget {
               child: GestureDetector(
                 child: Column(
                   children: [
+                    // Image.network(products[index].variants[0].imageUrl),
                     Text(
                       products[index].productName,
                       style:
