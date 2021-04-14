@@ -8,7 +8,6 @@ class Cartpage extends HookWidget {
   Widget build(BuildContext context) {
     final cartPageViewModel = riverpod.useProvider(cartPageViewModelProvider);
     final cartProducts = cartPageViewModel.products;
-    print(cartProducts);
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(

@@ -5,7 +5,7 @@ class Variant {
     return Variant(
       id: parsedJson['id'] as String ?? '',
       price: parsedJson['price'] as String ?? '',
-      imageUrl: parsedJson['image']['id'] as String ?? '',
+      imageUrl: parsedJson['image']['src'] as String ?? '',
       productType: parsedJson['title'] as String ?? '',
     );
   }

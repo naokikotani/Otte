@@ -13,7 +13,6 @@ class Product {
       productName: parsedJson['title'] as String,
       variants: productQueryList.map<Variant>((dynamic variant) {
         final node = variant['node'] as Map<String, dynamic>;
-        print(node);
         return Variant.fromJson(node);
       }).toList(),
     );

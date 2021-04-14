@@ -3,6 +3,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:otte/models/product.dart';
 import 'package:otte/ui/shop/selectSize/pusher.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class ProductDetailPage extends HookWidget {
   const ProductDetailPage({@required this.product});
@@ -30,6 +31,12 @@ class ProductDetailPage extends HookWidget {
           child: Center(
             child: Column(
               children: <Widget>[
+                Center(
+                  child: AspectRatio(
+                    aspectRatio: 1.0,
+                    child: Image.network(product.variants[0].imageUrl, height: 100, width: 100,),
+                  ),
+                ),
                 Text(
                   product.productName,
                   style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),

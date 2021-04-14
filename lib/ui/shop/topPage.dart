@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -47,7 +48,16 @@ class TopPage extends HookWidget {
               child: GestureDetector(
                 child: Column(
                   children: [
-                    // Image.network(products[index].variants[0].imageUrl),
+                    Center(
+                      child: AspectRatio(
+                        aspectRatio: 1.0,
+                        child: Image.network(
+                          products[index].variants[0].imageUrl,
+                          height: 100,
+                          width: 100,
+                        ),
+                      ),
+                    ),
                     Text(
                       products[index].productName,
                       style:

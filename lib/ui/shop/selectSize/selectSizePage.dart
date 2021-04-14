@@ -23,6 +23,7 @@ class SelectSizePage extends HookWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
+                      Image.network(product.variants[index].imageUrl, height: 40, width: 40,),
                       Column(
                         children: [
                           Text(
