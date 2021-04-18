@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:otte/globalViewModel/checkoutViewModel.dart';
 import 'package:otte/ui/cart/viewModel.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart' as riverpod;
 
@@ -7,7 +8,9 @@ class Cartpage extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final cartPageViewModel = riverpod.useProvider(cartPageViewModelProvider);
-    final cartProducts = cartPageViewModel.products;
+    final checkoutViewModel = riverpod.useProvider(checkoutViewModelProvider);
+    final lineItem = checkoutViewModel.checkout.lineItems;
+    final checkout = checkoutViewModel.checkout;
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -24,22 +27,28 @@ class Cartpage extends HookWidget {
               child: GestureDetector(
                 child: Column(
                   children: [
-                    // Image.network(products[index].variants[0].imageUrl),
+                    Image.network(lineItem[index].imageUrls[0]),
                     Text(
-                      cartProducts[index].productName,
+                      lineItem[index].title,
                       style:
                           TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                     ),
                     Text(
-                      '￥${cartProducts[index].variants[0].price}',
+                      '￥${lineItem[index].price}',
                       style: TextStyle(fontSize: 15),
                     ),
+                    RaisedButton(
+                        color: Colors.blue,
+                        child: Text('削除する'),
+                        onPressed: () {
+                          checkoutViewModel.removeLineItem(lineItem[index].id);
+                        })
                   ],
                 ),
               ),
             );
           },
-          itemCount: cartProducts.length,
+          itemCount: lineItem.length,
         ),
       ),
     );

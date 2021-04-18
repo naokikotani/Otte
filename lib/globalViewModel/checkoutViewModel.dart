@@ -14,7 +14,6 @@ class CheckoutViewModel extends ChangeNotifier {
 
   Checkout get checkout => _checkout;
 
-
   Future<void> createCheckout() async {
     try {
       _checkout = await _checkoutRepository.createCheckout();
@@ -27,9 +26,26 @@ class CheckoutViewModel extends ChangeNotifier {
     try {
       if (_checkout == null) {
         _checkout = await _checkoutRepository.createCheckout();
+
       }
-      // _checkout =
-      //     await _checkoutRepository.addToLineItems(_checkout.id, variantId);
+      _checkout =
+          await _checkoutRepository.addToLineItems(_checkout.id, variantId);
+      notifyListeners();
+    } on Exception catch (e) {
+      print(e);
+    }
+  }
+
+  Future<void> removeLineItem(String variantId) async {
+    try {
+      if (_checkout == null) {
+        return;
+      }
+      final targetLineItem = _checkout.lineItems
+          .firstWhere((lineItem) => lineItem.variantId == variantId);
+      final lineItemId = targetLineItem.id;
+      _checkout =
+          await _checkoutRepository.removeLineItem(_checkout.id, lineItemId);
       notifyListeners();
     } on Exception catch (e) {
       print(e);
