@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:otte/globalViewModel/checkoutViewModel.dart';
 import 'package:otte/models/product.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart' as riverpod;
 
@@ -8,6 +9,7 @@ class SelectSizePage extends HookWidget {
   final Product product;
   @override
   Widget build(BuildContext context) {
+    final checkoutViewModel = riverpod.useProvider(checkoutViewModelProvider);
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -23,7 +25,11 @@ class SelectSizePage extends HookWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Image.network(product.variants[index].imageUrl, height: 40, width: 40,),
+                      Image.network(
+                        product.variants[index].imageUrl,
+                        height: 40,
+                        width: 40,
+                      ),
                       Column(
                         children: [
                           Text(
@@ -41,7 +47,9 @@ class SelectSizePage extends HookWidget {
                         child: const Text('カートへ追加'),
                         color: Colors.black,
                         textColor: Colors.white,
-                        onPressed: () {},
+                        onPressed: () {
+                          checkoutViewModel.addToLineItems(product.variants[index].id);
+                        },
                       ),
                     ],
                   ),
