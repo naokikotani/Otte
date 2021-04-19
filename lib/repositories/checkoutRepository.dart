@@ -83,4 +83,8 @@ class CheckoutRepository {
         queryResult.data['checkoutLineItemsRemove']['checkout']);
     return checkout;
   }
+
+  Future<void> completeCheckout(String checkoutId) async {
+    await checkoutIdPref.removePref();
+  }
 }

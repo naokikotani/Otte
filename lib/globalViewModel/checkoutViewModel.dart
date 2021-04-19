@@ -51,4 +51,10 @@ class CheckoutViewModel extends ChangeNotifier {
       print(e);
     }
   }
+
+  Future<void> completeCheckout() async {
+    await _checkoutRepository.completeCheckout(_checkout.id);
+    _checkout = null;
+    notifyListeners();
+  }
 }
