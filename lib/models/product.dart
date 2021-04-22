@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:otte/models/variant.dart';
 
