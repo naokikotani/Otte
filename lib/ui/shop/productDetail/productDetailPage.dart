@@ -3,7 +3,6 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:otte/models/product.dart';
 import 'package:otte/ui/shop/selectSize/pusher.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 
 class ProductDetailPage extends HookWidget {
   const ProductDetailPage({@required this.product});
