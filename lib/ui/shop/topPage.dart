@@ -1,9 +1,6 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:otte/repositories/productRepository.dart';
-import 'package:otte/ui/cart/cartPage.dart';
 import 'package:otte/ui/cart/pusher.dart';
 import 'package:otte/ui/shop/productDetail/pusher.dart';
 import 'package:otte/ui/shop/viewModel.dart';
@@ -41,9 +38,13 @@ class TopPage extends HookWidget {
             ),
           ],
         ),
-        body: ListView.builder(
-          itemBuilder: (BuildContext context, int index) {
-            return Padding(
+        body: GridView.builder(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              childAspectRatio: 0.7,
+            ),
+            itemCount: products.length,
+            itemBuilder: (context, index) => Padding(
               padding: const EdgeInsets.all(8.0),
               child: GestureDetector(
                 child: Column(
@@ -63,9 +64,15 @@ class TopPage extends HookWidget {
                       style:
                           TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                     ),
-                    Text(
-                      '￥${products[index].variants[0].price}',
-                      style: TextStyle(fontSize: 15),
+                    Container(
+                      child: Container(
+                        width: double.infinity,
+                        child: Text(
+                          '￥${products[index].variants[0].price}',
+                          textAlign: TextAlign.left,
+                          style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
+                        ),
+                      ),
                     ),
                   ],
                 ),
@@ -74,10 +81,8 @@ class TopPage extends HookWidget {
                       .push();
                 },
               ),
-            );
-          },
-          itemCount: products.length,
-        ),
+            ),
+          ),
       ),
     );
   }
