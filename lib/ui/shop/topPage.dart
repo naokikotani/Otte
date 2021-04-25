@@ -27,15 +27,6 @@ class TopPage extends HookWidget {
                 CartPagePusher(context).push();
               },
             ),
-            IconButton(
-              icon: Icon(
-                FontAwesomeIcons.accessibleIcon,
-                color: Colors.black,
-              ),
-              onPressed: () {
-                topPageViewModel.getProducts();
-              },
-            ),
           ],
         ),
         body: GridView.builder(

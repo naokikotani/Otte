@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:otte/models/product.dart';
+import 'package:otte/ui/cart/pusher.dart';
 import 'package:otte/ui/shop/selectSize/pusher.dart';
 
 class ProductDetailPage extends HookWidget {
@@ -21,7 +22,9 @@ class ProductDetailPage extends HookWidget {
                 FontAwesomeIcons.shoppingCart,
                 color: Colors.black,
               ),
-              onPressed: () {},
+              onPressed: () {
+                CartPagePusher(context).push();
+              },
             ),
           ],
         ),
