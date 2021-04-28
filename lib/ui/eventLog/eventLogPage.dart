@@ -8,16 +8,26 @@ class EventLogPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(appBar: AppBar(
-        title: Text('お知らせ', style: TextStyle(color: Colors.black)),
-        backgroundColor: Colors.white,
-        actions: <Widget>[
-          IconButton(
-              icon: Icon(FontAwesomeIcons.shoppingCart, color: Colors.black,),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            'お知らせ',
+            style: TextStyle(
+              color: Colors.black,
+            ),
+          ),
+          backgroundColor: Colors.white,
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(
+                FontAwesomeIcons.shoppingCart,
+                color: Colors.black,
+              ),
               onPressed: CartPagePusher(context).push,
             ),
-        ],
-      ),),
+          ],
+        ),
+      ),
     );
   }
 }
