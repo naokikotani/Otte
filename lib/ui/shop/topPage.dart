@@ -15,7 +15,10 @@ class TopPage extends HookWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Otte', style: TextStyle(color: Colors.black)),
+          title: Text(
+            'Otte',
+            style: TextStyle(color: Colors.black),
+          ),
           backgroundColor: Colors.white,
           actions: <Widget>[
             IconButton(
@@ -30,50 +33,50 @@ class TopPage extends HookWidget {
           ],
         ),
         body: GridView.builder(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              childAspectRatio: 0.7,
-            ),
-            itemCount: products.length,
-            itemBuilder: (context, index) => Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: GestureDetector(
-                child: Column(
-                  children: [
-                    Center(
-                      child: AspectRatio(
-                        aspectRatio: 1.0,
-                        child: Image.network(
-                          products[index].variants[0].imageUrl,
-                          height: 100,
-                          width: 100,
-                        ),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            childAspectRatio: 0.7,
+          ),
+          itemCount: products.length,
+          itemBuilder: (context, index) => Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: GestureDetector(
+              child: Column(
+                children: [
+                  Center(
+                    child: AspectRatio(
+                      aspectRatio: 1.0,
+                      child: Image.network(
+                        products[index].variants[0].imageUrl,
+                        height: 100,
+                        width: 100,
                       ),
                     ),
-                    Text(
-                      products[index].productName,
-                      style:
-                          TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-                    ),
-                    Container(
-                      child: Container(
-                        width: double.infinity,
-                        child: Text(
-                          '￥${products[index].variants[0].price}',
-                          textAlign: TextAlign.left,
-                          style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
-                        ),
+                  ),
+                  Text(
+                    products[index].productName,
+                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                  ),
+                  Container(
+                    child: Container(
+                      width: double.infinity,
+                      child: Text(
+                        '￥${products[index].variants[0].price}',
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                            fontSize: 15, fontWeight: FontWeight.w400),
                       ),
                     ),
-                  ],
-                ),
-                onTap: () {
-                  ProductDetailPagePusher(context, product: products[index])
-                      .push();
-                },
+                  ),
+                ],
               ),
+              onTap: () {
+                ProductDetailPagePusher(context, product: products[index])
+                    .push();
+              },
             ),
           ),
+        ),
       ),
     );
   }
