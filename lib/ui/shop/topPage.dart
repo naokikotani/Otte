@@ -63,7 +63,7 @@ class TopPage extends HookWidget {
                       child: Text(
                         '￥${products[index].variants[0].price}',
                         textAlign: TextAlign.left,
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 15, fontWeight: FontWeight.w400),
                       ),
                     ),
