@@ -71,8 +71,10 @@ class TopPage extends HookWidget {
                 ],
               ),
               onTap: () {
-                ProductDetailPagePusher(context, product: products[index])
-                    .push();
+                ProductDetailPagePusher(
+                  context,
+                  product: products[index],
+                ).push();
               },
             ),
           ),
