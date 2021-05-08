@@ -17,7 +17,10 @@ class TopPage extends HookWidget {
         appBar: AppBar(
           title: Text(
             'Otte',
-            style: TextStyle(color: Colors.black),
+            style: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.w700,
+            ),
           ),
           backgroundColor: Colors.white,
           actions: <Widget>[

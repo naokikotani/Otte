@@ -8,16 +8,27 @@ class FavoritedListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(appBar: AppBar(
-        title: Text('お気に入り', style: TextStyle(color: Colors.black)),
-        backgroundColor: Colors.white,
-        actions: <Widget>[
-          IconButton(
-              icon: Icon(FontAwesomeIcons.shoppingCart, color: Colors.black,),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            'お気に入り',
+            style: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          backgroundColor: Colors.white,
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(
+                FontAwesomeIcons.shoppingCart,
+                color: Colors.black,
+              ),
               onPressed: CartPagePusher(context).push,
             ),
-        ],
-      ),),
+          ],
+        ),
+      ),
     );
   }
 }

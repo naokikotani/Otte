@@ -10,7 +10,13 @@ class MyPage extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('アカウント', style: TextStyle(color: Colors.black)),
+          title: Text(
+            'アカウント',
+            style: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
           backgroundColor: Colors.white,
           actions: <Widget>[
             IconButton(

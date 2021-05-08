@@ -17,7 +17,10 @@ class Cartpage extends HookWidget {
           backgroundColor: Colors.white,
           title: Text(
             '買い物カゴ',
-            style: TextStyle(color: Colors.black),
+            style: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.w600,
+            ),
           ),
         ),
         body: lineItems.isNotEmpty
@@ -83,7 +86,8 @@ class Cartpage extends HookWidget {
                           padding: const EdgeInsets.only(right: 20),
                           child: Text(
                             '¥0',
-                            style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                            style: TextStyle(
+                                fontSize: 17, fontWeight: FontWeight.bold),
                           ),
                         ),
                       ),
@@ -96,7 +100,8 @@ class Cartpage extends HookWidget {
                           padding: const EdgeInsets.only(right: 20),
                           child: Text(
                             '¥${checkout.totalPrice.toStringAsFixed(0)}',
-                            style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                            style: TextStyle(
+                                fontSize: 17, fontWeight: FontWeight.bold),
                           ),
                         ),
                       ),

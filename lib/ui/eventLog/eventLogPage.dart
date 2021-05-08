@@ -14,6 +14,7 @@ class EventLogPage extends StatelessWidget {
             'お知らせ',
             style: TextStyle(
               color: Colors.black,
+              fontWeight: FontWeight.w600,
             ),
           ),
           backgroundColor: Colors.white,
