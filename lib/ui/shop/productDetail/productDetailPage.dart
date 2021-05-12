@@ -55,7 +55,10 @@ class ProductDetailPage extends HookWidget {
                   padding: const EdgeInsets.only(top: 20.0, bottom: 10),
                   child: Text(
                     product.productName,
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
                 Padding(
