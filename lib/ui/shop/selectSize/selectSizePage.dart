@@ -13,7 +13,12 @@ class SelectSizePage extends HookWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('サイズを選択', style: TextStyle(color: Colors.black)),
+          title: Text(
+            'サイズを選択',
+            style: TextStyle(
+              color: Colors.black,
+            ),
+          ),
           backgroundColor: Colors.white,
         ),
         body: ListView.builder(
@@ -48,7 +53,8 @@ class SelectSizePage extends HookWidget {
                         color: Colors.black,
                         textColor: Colors.white,
                         onPressed: () {
-                          checkoutViewModel.addToLineItems(product.variants[index].id);
+                          checkoutViewModel
+                              .addToLineItems(product.variants[index].id);
                         },
                       ),
                     ],
