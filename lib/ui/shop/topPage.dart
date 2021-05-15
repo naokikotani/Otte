@@ -58,7 +58,10 @@ class TopPage extends HookWidget {
                   ),
                   Text(
                     products[index].productName,
-                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   Container(
                     child: Container(
