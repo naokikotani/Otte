@@ -70,7 +70,9 @@ class TopPage extends HookWidget {
                         '￥${products[index].variants[0].price}',
                         textAlign: TextAlign.left,
                         style: const TextStyle(
-                            fontSize: 15, fontWeight: FontWeight.w400),
+                          fontSize: 15,
+                          fontWeight: FontWeight.w400,
+                        ),
                       ),
                     ),
                   ),
