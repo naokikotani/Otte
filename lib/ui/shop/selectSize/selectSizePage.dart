@@ -40,7 +40,9 @@ class SelectSizePage extends HookWidget {
                           Text(
                             product.variants[index].productType,
                             style: TextStyle(
-                                fontSize: 15, fontWeight: FontWeight.bold),
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                           Text(
                             '￥${product.variants[index].price}',
