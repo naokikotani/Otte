@@ -57,7 +57,10 @@ class Cartpage extends HookWidget {
                                     ),
                                     Text(
                                       '￥${lineItems[index].price.toStringAsFixed(0)}',
-                                      style: TextStyle(fontSize: 14),
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                     ),
                                   ],
                                 ),
